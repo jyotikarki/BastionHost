@@ -1,6 +1,4 @@
 pipeline {
-
-
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
@@ -46,8 +44,8 @@ pipeline {
                     // Store the selected action in an environment variable for later stages
                     env.ACTION = action
                 }
-            
-        }
+            }
+        } // Added the missing closing curly brace here
 
         stage('Apply or Destroy') {
             when {
@@ -68,5 +66,4 @@ pipeline {
             }
         }
     }
-}
 }
